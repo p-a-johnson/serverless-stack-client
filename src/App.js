@@ -29,8 +29,8 @@ function App(props) {
         setIsAuthenticating(false);
     }
 
-    function handleLogout() {
-        Auth.signOut();
+    async function handleLogout() {
+        await Auth.signOut();
 
         userHasAuthenticated(false);
 
