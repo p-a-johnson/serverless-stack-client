@@ -2,7 +2,7 @@ export default {
     MAX_ATTACHMENT_SIZE: 5000000,
     s3: {
         REGION: "eu-west-1",
-        BUCKET: "paul-johnson-notes-app-upload"
+        BUCKET: "notes-app-pj-api-dev-attachmentsbucket-13di03e14fjbm"
     },
     apiGateway: {
         REGION: "eu-west-1",
