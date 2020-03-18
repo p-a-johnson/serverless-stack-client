@@ -5,7 +5,7 @@ import { API } from "aws-amplify";
 import { LinkContainer } from "react-router-bootstrap";
 
 export default function Home(props) {
-    const [notes, setNotes] = useState([]);
+    const [productSpecifications, setProductSpecifications] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -15,8 +15,8 @@ export default function Home(props) {
             }
 
             try {
-                const notes = await loadNotes();
-                setNotes(notes);
+                const productSpecifications = await loadProductSpecifications();
+                setProductSpecifications(productSpecifications);
             } catch (e) {
                 alert(e);
             }
@@ -27,23 +27,24 @@ export default function Home(props) {
         onLoad();
     }, [props.isAuthenticated]);
 
-    function loadNotes() {
-        return API.get("notes", "/notes");
+
+    function loadProductSpecifications() {
+        return API.get("productSpecification", "/productSpecifications");
     }
 
-    function renderNotesList(notes) {
-        return [{}].concat(notes).map((note, i) =>
+    function renderProductSpecificationsList(productSpecifications) {
+        return [{}].concat(productSpecifications).map((productSpecification, i) =>
             i !== 0 ? (
-                <LinkContainer key={note.noteId} to={`/notes/${note.noteId}`}>
-                    <ListGroupItem header={note.content.trim().split("\n")[0]}>
-                        {"Created: " + new Date(note.createdAt).toLocaleString()}
+                <LinkContainer key={productSpecification.productSpecificationId} to={`/productSpecification/${productSpecification.productSpecificationId}`}>
+                    <ListGroupItem header={productSpecification.psname}>
+                        {"Created: " + new Date(productSpecification.createdAt).toLocaleString()}
                     </ListGroupItem>
                 </LinkContainer>
             ) : (
-                <LinkContainer key="new" to="/notes/new">
+                <LinkContainer key="new" to="/productSpecification/new">
                     <ListGroupItem>
                         <h4>
-                            <b>{"\uFF0B"}</b> Create a new note
+                            <b>{"\uFF0B"}</b> Create a new Product Specification
                         </h4>
                     </ListGroupItem>
                 </LinkContainer>
@@ -54,18 +55,19 @@ export default function Home(props) {
     function renderLander() {
         return (
             <div className="lander">
-                <h1>Scratch</h1>
-                <p>A simple note taking app</p>
+                <h1>Product Catalog</h1>
+                <p>Hello World for Products</p>
             </div>
         );
     }
 
-    function renderNotes() {
+
+    function renderProductSpecifications() {
         return (
-            <div className="notes">
-                <PageHeader>Your Notes</PageHeader>
+            <div className="productSpecifications">
+                <PageHeader>Product Specifications</PageHeader>
                 <ListGroup>
-                    {!isLoading && renderNotesList(notes)}
+                    {!isLoading && renderProductSpecificationsList(productSpecifications)}
                 </ListGroup>
             </div>
         );
@@ -73,7 +75,8 @@ export default function Home(props) {
 
     return (
         <div className="Home">
-            {props.isAuthenticated ? renderNotes() : renderLander()}
+            {/*{props.isAuthenticated ? renderNotes() : renderLander()}*/}
+            {props.isAuthenticated ? renderProductSpecifications() : renderLander()}
         </div>
     );
 }

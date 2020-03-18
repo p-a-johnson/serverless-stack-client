@@ -1,0 +1,8 @@
+.NewProductSpecification form {
+    padding-bottom: 15px;
+}
+
+.NewProductSpecification form textarea {
+    height: 35px;
+    font-size: 24px;
+}
