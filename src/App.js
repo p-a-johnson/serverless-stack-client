@@ -15,9 +15,9 @@ function App(props) {
         onLoad();
     }, []);
 
-    function onLoad() {
+    async function onLoad() {
         try {
-            Auth.currentSession();
+            await Auth.currentSession();
             userHasAuthenticated(true);
         }
         catch(e) {
