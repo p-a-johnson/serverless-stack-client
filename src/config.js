@@ -1,12 +1,7 @@
 export default {
-    MAX_ATTACHMENT_SIZE: 5000000,
-    s3: {
-        REGION: "eu-west-1",
-        BUCKET: "notes-app-pj-api-dev-attachmentsbucket-13di03e14fjbm"
-    },
     apiGateway: {
         REGION: "eu-west-1",
-        URL: "https://gm1s9k05gg.execute-api.eu-west-1.amazonaws.com/dev"
+        URL: "https://1k49d1t8p3.execute-api.eu-west-1.amazonaws.com/dev"
     },
     cognito: {
         REGION: "eu-west-1",

@@ -1,8 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
-import { API, Storage } from "aws-amplify";
+import React, { useState, useEffect } from "react";
+import { API } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
-import config from "../config";
 
 export default function ProductSpecifications(props) {
     const [productSpecification, setProductSpecification] = useState(null);

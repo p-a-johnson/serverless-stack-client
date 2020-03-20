@@ -37,7 +37,8 @@ export default function Home(props) {
             i !== 0 ? (
                 <LinkContainer key={productSpecification.productSpecificationId} to={`/productSpecification/${productSpecification.productSpecificationId}`}>
                     <ListGroupItem header={productSpecification.psname}>
-                        {"Created: " + new Date(productSpecification.createdAt).toLocaleString()}
+                        <i>{productSpecification.description}</i>
+                        <span className="pull-right">{"Created: " + new Date(productSpecification.createdAt).toLocaleString()}</span>
                     </ListGroupItem>
                 </LinkContainer>
             ) : (

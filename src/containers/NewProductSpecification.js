@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import "./NewProductSpecification.css";
